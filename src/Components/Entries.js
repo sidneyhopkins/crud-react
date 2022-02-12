@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
-
+import Card from 'react-bootstrap/Card';
 
 
 
 function Entries ( props ) {
-    const { list, editEntry, deleteEntry,  } = props;
+    const { list, editMode, deleteEntry,  } = props;
 
     return (
         <div>
@@ -13,14 +13,27 @@ function Entries ( props ) {
                 {list.length !== 0 ? (
                 list.map((item) => {
                     return (
-                    <div key={item.id} >
-                        <div className="entryName" >{item.name}</div>
-                        <div className="entryText" >{item.entry}</div>
+                        <Card key={item.id} className={'card bg-dark text-light'} style={{ width: '18rem' }}>
+                            <Card.Header>
+                                <Card.Title>{item.name}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">entry no. {item.id}</Card.Subtitle>
+                            </Card.Header>   
+
+                            <Card.Body>
+
+                            
+                                <Card.Text>{item.entry}</Card.Text>
+                            
+                            </Card.Body>
+
+                        <Card.Footer>
                         <Button 
                             variant="btn btn-outline-secondary btn-sm"
                             id={item.id}
-                            onClick={(item) => editEntry(item)} >
-                            Edit Entry
+                            name={item.name}
+                            value={item.entry}
+                            onClick={(item) => editMode(item)} >
+                            Edit
                         </Button>
                         <Button
                             variant="btn btn-outline-secondary btn-sm"
@@ -28,7 +41,9 @@ function Entries ( props ) {
                             onClick={deleteEntry} >
                             Delete
                         </Button>
-                    </div>
+
+                        </Card.Footer>
+                        </Card>
                     )
                 })) : (<div>no entries yet</div>)
                 }

@@ -1,43 +1,43 @@
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { useState } from 'react';
 
 
 function EditJournalForm ( props ) {
-    const { entry, setEntry, currentEntry, setCurrentEntry, updatedEntry, setEditing, setUpdatedEntry} = props;
-    // const [ entry, setEntry ] = useState(props.currentEntry);
+    const { editEntry, setEditEntry, setEditing, updateEntry } = props;
     
+    // When a user types into input fields for this component, update states
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setCurrentEntry({...entry, [name]: value});
+      const { name, value } = event.target;
+      setEditEntry({...editEntry, [name]: value});
     }
 
-
     return (
-        <div>
+        <Form>
           <h2>Edit Entry</h2>
           <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
-            <Form.Control 
-              type="title"
-              placeholder="My title" 
-              name="name"
-              value={currentEntry.name}
-              onChange={handleInputChange} />
+          <Form.Control 
+            type="title"
+            placeholder="My title" 
+            name="name"
+            value={editEntry.name}
+            onChange={handleInputChange} />
           </FloatingLabel>
           <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
-            <Form.Control
-              as="textarea"
-              name="entry"
-              placeholder="Type entry here"
-              style={{ height: '100px' }}
-              value={currentEntry.entry} 
-              onChange={handleInputChange}  />
+          <Form.Control
+            as="textarea"
+            name="entry"
+            placeholder="Type entry here"
+            style={{ height: '100px' }}
+            value={editEntry.entry} 
+            onChange={handleInputChange}  />
           </FloatingLabel>
           <Button 
-            id={entry.id}
+            id={editEntry.id}
+            name={editEntry.name}
+            value={editEntry.entry}
             variant="btn btn-outline-secondary"
-            onClick={(id) => updatedEntry(id)}>
+            onClick={(e) => updateEntry(e)}>
             Update Entry
           </Button>
           <Button 
@@ -45,8 +45,7 @@ function EditJournalForm ( props ) {
             onClick={() => setEditing(false)}>
             Cancel
           </Button>
-
-        </div>
+        </Form>
     );
 }
 

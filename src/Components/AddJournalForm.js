@@ -6,15 +6,14 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 function AddJournalForm ( props ) {
     const { entry, setEntry, createEntry } = props;
 
-      // When a user types into any input field, update states
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setEntry({...entry, [name]: value});
+    // When a user types into input fields for this component, update states
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setEntry({...entry, [name]: value});
     }
 
-
     return (
-        <div>
+        <Form>
           <h2>Add Entry</h2>
           <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
             <Form.Control 
@@ -34,7 +33,7 @@ function AddJournalForm ( props ) {
               onChange={handleInputChange} />
           </FloatingLabel>
           <Button variant="btn btn-outline-secondary" onClick={createEntry}>Add Entry</Button>
-        </div>
+        </Form>
     );
 }
 
