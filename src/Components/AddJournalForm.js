@@ -13,11 +13,11 @@ function AddJournalForm ( props ) {
     }
 
     return (
-        <Form>
+        <Form style={{ width: '20rem' }}>
           <h2>Add Entry</h2>
           <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
             <Form.Control 
-              type="title"
+              type="text"
               placeholder="My title" 
               name="name"
               value={entry.name}
@@ -25,6 +25,7 @@ function AddJournalForm ( props ) {
           </FloatingLabel>
           <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
             <Form.Control
+            className={'mb-3'}
               as="textarea"
               name="entry"
               placeholder="Type entry here"

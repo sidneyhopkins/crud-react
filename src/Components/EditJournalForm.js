@@ -12,25 +12,28 @@ function EditJournalForm ( props ) {
       setEditEntry({...editEntry, [name]: value});
     }
 
+
+
     return (
-        <Form>
+        <Form style={{ width: '20rem' }} >
           <h2>Edit Entry</h2>
           <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
-          <Form.Control 
-            type="title"
-            placeholder="My title" 
-            name="name"
-            value={editEntry.name}
-            onChange={handleInputChange} />
+            <Form.Control 
+              type="title"
+              placeholder="My title" 
+              name="name"
+              value={editEntry.name}
+              onChange={handleInputChange} />
           </FloatingLabel>
           <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
-          <Form.Control
-            as="textarea"
-            name="entry"
-            placeholder="Type entry here"
-            style={{ height: '100px' }}
-            value={editEntry.entry} 
-            onChange={handleInputChange}  />
+            <Form.Control
+              className={'mb-3'}
+              as="textarea"
+              name="entry"
+              placeholder="Type entry here"
+              style={{ height: '100px' }}
+              value={editEntry.entry} 
+              onChange={handleInputChange}  />
           </FloatingLabel>
           <Button 
             id={editEntry.id}
