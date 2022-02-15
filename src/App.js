@@ -5,6 +5,9 @@ import Entries from "./Components/Entries";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import uuid from 'react-uuid';
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 
 
 function App() {
@@ -59,32 +62,32 @@ function App() {
     const { id } = e.target;
     setList(list.filter((item) => item.id !== id));
   }
-    
+  
 
   return (
-    <Container>
-        <header>
+    <Container  className="container" >
+        <Row name='top' className="header mb-3 mt-3 bg-light"  >
           <h1>Journal</h1>
-        </header>
-        <div className="wrapper">
-          <div className="content-left">
-            {editing ? (
-              <EditJournalForm 
-              setEditing={setEditing}
-              editEntry={editEntry}
-              setEditEntry={setEditEntry}
-              updateEntry={updateEntry}  />
-            ) : (
-              <AddJournalForm 
-                setEntry={setEntry}
-                entry={entry} 
-                createEntry={createEntry} />
-            )}  
-          </div>
-          <div className="content-right">
+        </Row>
+        <Row className="wrapper">
+            <Col className="content-left mb-5 "  >
+              {editing ? (
+                <EditJournalForm 
+                setEditing={setEditing}
+                editEntry={editEntry}
+                setEditEntry={setEditEntry}
+                updateEntry={updateEntry}  />
+              ) : (
+                <AddJournalForm 
+                  setEntry={setEntry}
+                  entry={entry} 
+                  createEntry={createEntry} />
+              )}  
+            </Col>
+          <Col className="content-right">
             <Entries list={list} deleteEntry={deleteEntry} editMode={editMode} />          
-          </div>
-        </div>
+          </Col>
+        </Row>
     </Container>
   );
 }
