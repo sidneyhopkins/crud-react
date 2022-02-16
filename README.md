@@ -10,7 +10,9 @@ HTML, CSS, Bootstrap, JavaScript, React (react-uuid)
 
 ## Description
 
-This application allows users to type a journal entry with a title, where it can be published directly on the page. The journal can be edited and deleted. The date is stamped to the entry when published, and updates each time the user updates
+This application allows users to type a journal entry with a title, where it can be viewed directly on the page. The journal entries can be edited and deleted. The date and time is stamped to the entry when it's published, and updates each time the user edits an entry.
+
+## [View App Here](https://sad-engelbart-8686e7.netlify.app)
 
 ## How to Use
 
