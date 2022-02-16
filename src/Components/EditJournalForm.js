@@ -12,46 +12,44 @@ function EditJournalForm ( props ) {
       setEditEntry({...editEntry, [name]: value});
     }
 
-
-
     return (
         <Form onSubmit={(e) => e.preventDefault()} >
-          <h2>Edit Entry</h2>
-          <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
-            <Form.Control 
-              as="input"
-              size='lg'
-              type="text"
-              placeholder="My title" 
-              name="name"
-              value={editEntry.name}
-              onChange={handleInputChange} />
-          </FloatingLabel>
-          <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
-            <Form.Control
-              className='mb-3'
-              size='sm'
-              as="textarea"
-              name="entry"
-              placeholder="Type entry here"
-              style={{ height: '150px' }}
-              value={editEntry.entry} 
-              onChange={handleInputChange} />
-          </FloatingLabel>
-          <Button 
-            className="update-entry-button"
-            id={editEntry.id}
-            name={editEntry.name}
-            value={editEntry.entry}
-            variant="btn btn-outline-secondary"
-            onClick={(e) => updateEntry(e)} >
-            Update Entry
-          </Button>
-          <Button 
-            variant="btn btn-outline-secondary" 
-            onClick={() => setEditing(false)} >
-            Cancel
-          </Button>
+            <h2>Edit Entry</h2>
+            <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
+                <Form.Control 
+                as="input"
+                size='lg'
+                type="text"
+                placeholder="My title" 
+                name="name"
+                value={editEntry.name}
+                onChange={handleInputChange} />
+            </FloatingLabel>
+            <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
+                <Form.Control
+                className='mb-3'
+                size='sm'
+                as="textarea"
+                name="entry"
+                placeholder="Type entry here"
+                style={{ height: '150px' }}
+                value={editEntry.entry} 
+                onChange={handleInputChange} />
+            </FloatingLabel>
+            <Button 
+                className="update-entry-button"
+                id={editEntry.id}
+                name={editEntry.name}
+                value={editEntry.entry}
+                variant="btn btn-outline-success"
+                onClick={(e) => updateEntry(e)} >
+                Update Entry
+            </Button>
+            <Button 
+                variant="btn btn-outline-secondary"
+                onClick={() => setEditing(false)} >
+                Cancel
+            </Button>
         </Form>
     );
 }

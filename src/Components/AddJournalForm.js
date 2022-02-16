@@ -15,28 +15,33 @@ function AddJournalForm ( props ) {
     return (
         <Form onSubmit={(e) => e.preventDefault()} >
           <h2>Add Entry</h2>
-          <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
-            <Form.Control 
-              as="input"
-              size='lg'
-              type="text"
-              placeholder="My title" 
-              name="name"
-              value={entry.name}
-              onChange={handleInputChange} />
-          </FloatingLabel>
-          <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
-            <Form.Control
-              className='mb-3'
-              size='sm'
-              as="textarea"
-              name="entry"
-              placeholder="Type entry here"
-              style={{ height: '150px' }}
-              value={entry.entry} 
-              onChange={handleInputChange} />
-          </FloatingLabel>
-          <Button type="button" variant="btn btn-outline-primary" onClick={createEntry}>Add Entry</Button>
+            <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
+                <Form.Control 
+                as="input"
+                size='lg'
+                type="text"
+                placeholder="My title" 
+                name="name"
+                value={entry.name}
+                onChange={handleInputChange} />
+            </FloatingLabel>
+            <FloatingLabel controlId="floatingTextarea2" label="Journal Entry">
+                <Form.Control
+                className='mb-3'
+                size='sm'
+                as="textarea"
+                name="entry"
+                placeholder="Type entry here"
+                style={{ height: '150px' }}
+                value={entry.entry} 
+                onChange={handleInputChange} />
+            </FloatingLabel>
+            <Button 
+                type="button" 
+                variant="btn btn-outline-primary"
+                onClick={createEntry}>
+                Add Entry
+            </Button>
         </Form>
     );
 }
