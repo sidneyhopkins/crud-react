@@ -38,7 +38,7 @@ function AddJournalForm ( props ) {
             </FloatingLabel>
             <Button 
                 type="button" 
-                variant="btn btn-outline-primary"
+                variant="btn btn-primary"
                 onClick={createEntry}>
                 Add Entry
             </Button>

@@ -30,9 +30,9 @@ function EditJournalForm ( props ) {
                 className='mb-3'
                 size='sm'
                 as="textarea"
-                name="entry"
                 placeholder="Type entry here"
                 style={{ height: '150px' }}
+                name="entry"
                 value={editEntry.entry} 
                 onChange={handleInputChange} />
             </FloatingLabel>
@@ -41,12 +41,12 @@ function EditJournalForm ( props ) {
                 id={editEntry.id}
                 name={editEntry.name}
                 value={editEntry.entry}
-                variant="btn btn-outline-success"
+                variant="btn btn-success"
                 onClick={(e) => updateEntry(e)} >
                 Update Entry
             </Button>
             <Button 
-                variant="btn btn-outline-secondary"
+                variant="btn btn-secondary"
                 onClick={() => setEditing(false)} >
                 Cancel
             </Button>

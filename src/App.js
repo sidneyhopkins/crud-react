@@ -11,6 +11,7 @@ import Col from "react-bootstrap/Col";
 
 function App() {
     const initialFormState = { id: null, name: '', entry: '', date: '' };
+    const resetFormState = { id: null, name: '', entry: '', date: '' };
     const [ entry, setEntry ] = useState(initialFormState);
     const [ list, setList ] = useState([]);
     const [ editing, setEditing ] = useState(false);
@@ -28,19 +29,23 @@ function App() {
     // when a user clicks 'Create Entry' button in component 'AddJournalForm'
     const createEntry = () => {
 
-        const errMessage = () => {
-            alert('You need to provide a title and journal entry to publish.')
-        }
-
         const newEntry = () => {
             entry.id = uuid();
             entry.date = createNewDate();
             setList(list.length === 0 ? [entry] : [...list, entry] );
-            setEntry(initialFormState);
+            setEntry(resetFormState);
         }
 
-        if (entry.name === '' || entry.entry === '') {
-            errMessage()
+        if (entry.name === '' && entry.entry === '') {
+            entry.entry = 'No entry.';
+            entry.name = 'No Title';
+            newEntry()
+        } else if (entry.name === '') {
+            entry.name = 'No Title';
+            newEntry()
+        } else if (entry.entry === '') {
+            entry.entry = 'No entry.';
+            newEntry();
         } else {
             newEntry();
         }

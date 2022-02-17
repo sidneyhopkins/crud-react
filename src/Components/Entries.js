@@ -13,10 +13,10 @@ function Entries ( props ) {
                 {list.length !== 0 ? (
                 list.map((item, index) => {
                     return (
-                        <Card key={item.id} className={'card mb-3  text-dark'} >
+                        <Card key={item.id} className={'card mb-3  text-dark '} >
                             <Card.Header>
-                                <Card.Title className="card-text mb-3 text-dark">{item.name}</Card.Title>
-                                <Card.Subtitle className="card-sub mb-2 text-start">Entry {index + 1}</Card.Subtitle>
+                              <Card.Subtitle className="card-sub mt-2 mb-3 text-start">Entry {index + 1}</Card.Subtitle>
+                              <Card.Title className="card-text mb-2 text-dark">{item.name}</Card.Title>
                             </Card.Header>   
 
                             <Card.Body>
@@ -25,8 +25,8 @@ function Entries ( props ) {
 
                             <Card.Footer>
                                 <h6 className="card-sub mb-3 text-center">Last edited on {item.date}</h6>
-                                <a href='#top'>
-                                <Button 
+                                <a href='#top'>                                    
+                                  <Button 
                                     className="edit-button"
                                     variant="btn btn-outline-info btn-md"
                                     id={item.id}
@@ -34,8 +34,10 @@ function Entries ( props ) {
                                     value={item.entry}
                                     onClick={(e) => editMode(e)} >
                                     Edit
-                                </Button>
+                                  </Button> 
                                 </a>
+
+
                                 <Button
                                     variant="btn btn-outline-warning btn-md"
                                     id={item.id}
