@@ -17,6 +17,7 @@ function AddJournalForm ( props ) {
           <h2>Add Entry</h2>
             <FloatingLabel controlId="floatingTextarea" label="Title" className="mb-3">
                 <Form.Control 
+                autocomplete='off'
                 as="input"
                 size='lg'
                 type="text"
